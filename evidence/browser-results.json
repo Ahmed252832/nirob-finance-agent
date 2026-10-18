@@ -1,0 +1,109 @@
+{
+  "pass": true,
+  "authenticator": "Chrome CDP virtual CTAP2; server signature verification real",
+  "registration": {
+    "verified": true
+  },
+  "receipt": {
+    "verified": true,
+    "executed": true,
+    "receipt": {
+      "id": "7181694e-536a-4ff5-aca3-71222fcec729",
+      "proposalId": "3ba5a4c0-801a-43f9-8a35-da6ac0565f4d",
+      "kind": "expense",
+      "merchant": "Rahim",
+      "amountMinor": 50000,
+      "accountId": "bank",
+      "category": "Transfers",
+      "date": "2026-10-18",
+      "status": "posted",
+      "source": "verified demo payment"
+    },
+    "approvalCredentialCount": 1,
+    "transactionHash": "6ab8198fa12d063fcf4036fada4762ed544b780299f3d9604c7107dfc739f476"
+  },
+  "replayRejected": true,
+  "agent": {
+    "id": "06d25951-51e9-450f-8bcd-36927cafd919",
+    "at": "2026-10-18T02:34:32.623Z",
+    "goal": "Pay my electricity bill",
+    "plan": {
+      "steps": [
+        {
+          "tool": "draft_bill",
+          "billId": "electricity"
+        }
+      ]
+    },
+    "raw": "{\n  \"steps\": [\n    {\n      \"tool\": \"draft_bill\",\n      \"billId\": \"electricity\"\n    }\n  ]\n}",
+    "latencyMs": 1820,
+    "model": "work/runtime/model.gguf",
+    "observations": [
+      {
+        "tool": "draft_bill",
+        "status": "completed",
+        "result": {
+          "id": "33caf128-f1f9-465e-b7a6-ffc64befd1e4",
+          "kind": "bill",
+          "payee": "City Electricity Demo",
+          "amountMinor": 235000,
+          "accountId": "bank",
+          "reference": "2026-10-ELEC",
+          "billId": "electricity",
+          "dueDate": "2026-10-28",
+          "category": "Utilities",
+          "status": "pending",
+          "origin": "agent",
+          "traceId": "06d25951-51e9-450f-8bcd-36927cafd919",
+          "createdAt": "2026-10-18T02:34:32.615Z",
+          "guard": {
+            "allowed": true,
+            "reasons": [],
+            "signals": [],
+            "tier": 0,
+            "needsSecondDevice": false
+          }
+        }
+      }
+    ],
+    "explanation": "Completed 1 of 1 planned tools. Prepared 1 payment draft(s); no payment was executed. Review the recipient, amount and Guardian result, then use your passkey."
+  },
+  "budget": {
+    "month": "2026-10",
+    "incomeMinor": 6800000,
+    "spentMinor": 2934000,
+    "spentEssentialMinor": 2605000,
+    "upcomingBillsMinor": 125000,
+    "requestedSavingsMinor": 1000000,
+    "suggestedSavingsMinor": 1000000,
+    "savingsShortfallMinor": 0,
+    "spendingLimitMinor": 5800000,
+    "discretionaryRemainingMinor": 2741000,
+    "deficitMinor": 0,
+    "basis": "Recorded income minus posted expenses, unpaid bills and achievable savings. Missing income or expenses changes the result.",
+    "recommendations": [
+      "Keep essential bills funded before discretionary purchases.",
+      "Review subscriptions and add unrecorded cash expenses."
+    ]
+  },
+  "riskyPayment": {
+    "verified": true,
+    "executed": true,
+    "receipt": {
+      "id": "817e89f3-13e5-4adf-bafc-4f7ef16db628",
+      "proposalId": "a5f0e1b1-97f6-4953-bdd5-7ab8d6123d8e",
+      "cardRequestId": "a5f0e1b1-97f6-4953-bdd5-7ab8d6123d8e",
+      "kind": "expense",
+      "merchant": "Unknown Online Shop",
+      "amountMinor": 489000,
+      "accountId": "debit",
+      "category": "Shopping",
+      "date": "2026-10-18",
+      "status": "posted",
+      "source": "verified demo payment"
+    },
+    "approvalCredentialCount": 2,
+    "transactionHash": "55a9b6ebfb5be7102387b82b537dacab5fc84fa6ce7239d2597cea16b7360ff6"
+  },
+  "auditValid": true
+}

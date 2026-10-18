@@ -1,0 +1,36 @@
+[
+  {
+    "name": "sample_bill.pdf",
+    "passed": true,
+    "text": "SYNTHETIC UTILITY BILL\nPayee: City Gas Demo\nInvoice: GAS-DEMO-018\nDue Date: 2026-10-28\nAmount Due: BDT 1250.50\nThis is sample data. No real payment is requested.\n",
+    "fields": {
+      "payee": "City Gas Demo",
+      "amount": "1250.50",
+      "reference": "GAS-DEMO-018",
+      "dueDate": "2026-10-28",
+      "suspicious": false,
+      "requiresReview": true,
+      "missing": []
+    },
+    "confidence": null,
+    "engine": "PDF text extraction",
+    "fileName": "sample_bill.pdf"
+  },
+  {
+    "name": "sample_bill.png",
+    "passed": true,
+    "text": "\nSYNTHETIC UTILITY BILL\nPayee: City Gas Demo\n\nInvoice: GAS-DEMO-018\n\nDue Date: 2026-10-28\n\nAmount Due: BDT 1250.50\n\nThis is sample data. No real payment is requested.\n",
+    "fields": {
+      "payee": "City Gas Demo",
+      "amount": "1250.50",
+      "reference": "GAS-DEMO-018",
+      "dueDate": "2026-10-28",
+      "suspicious": false,
+      "requiresReview": true,
+      "missing": []
+    },
+    "confidence": 95,
+    "engine": "Tesseract English OCR",
+    "fileName": "sample_bill.png"
+  }
+]

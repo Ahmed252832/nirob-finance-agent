@@ -1,0 +1,20 @@
+[
+  {
+    "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11716/llama-b11716-bin-win-cpu-x64.zip",
+    "file": "llama.zip",
+    "sha256": "79b143075ab87fb5aff6f8f8ca80500a984f4120b5199fa9f9b70b284f17428e",
+    "bytes": 19662702
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/main/qwen2.5-1.5b-instruct-q4_k_m.gguf",
+    "file": "model.gguf",
+    "sha256": "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e",
+    "bytes": 1117320736
+  },
+  {
+    "url": "https://tessdata.projectnaptha.com/4.0.0/eng.traineddata.gz",
+    "file": "eng.traineddata.gz",
+    "sha256": "ed350f3752f81ee8f38769edc14d92d997dababe23b565c59879372cc46a2468",
+    "bytes": 10923060
+  }
+]

@@ -1,0 +1,13 @@
+import test,{before,after} from 'node:test';import assert from 'node:assert/strict';import {spawn} from 'node:child_process';import {mkdtempSync,rmSync} from 'node:fs';import {join} from 'node:path';import {tmpdir} from 'node:os';
+const dir=mkdtempSync(join(tmpdir(),'nirob-http-')),origin='http://localhost:4207';let child,cookie,csrf;
+before(async()=>{child=spawn(process.execPath,['server.mjs'],{cwd:new URL('..',import.meta.url),env:{...process.env,NIROB_PORT:'4207',NIROB_DATA_DIR:dir},stdio:['ignore','pipe','pipe']});await new Promise((resolve,reject)=>{child.stdout.once('data',resolve);child.once('error',reject);setTimeout(()=>reject(Error('startup timeout')),10000).unref();});const r=await fetch(origin+'/api/state');cookie=r.headers.get('set-cookie').split(';')[0];csrf=(await r.json()).csrf;});
+after(async()=>{child?.kill();await new Promise(r=>setTimeout(r,300));rmSync(dir,{recursive:true,force:true});});
+const post=(path,data,headers={})=>fetch(origin+'/api/'+path,{method:'POST',headers:{Cookie:cookie,Origin:origin,'Content-Type':'application/json','X-CSRF-Token':csrf,...headers},body:JSON.stringify(data)});
+test('server rejects missing CSRF token',async()=>assert.equal((await post('draft',{}, {'X-CSRF-Token':''})).status,403));
+test('server rejects another origin',async()=>assert.equal((await post('draft',{}, {Origin:'https://example.com'})).status,403));
+test('locked session cannot modify accounts',async()=>{const r=await post('accounts/add',{name:'Fake',type:'bank',amount:'1000'});assert.equal(r.status,400);assert.match((await r.json()).error,/Unlock/);});
+test('state response does not expose credential public-key records',async()=>{const r=await(await fetch(origin+'/api/state',{headers:{Cookie:cookie}})).json();assert.equal(r.credentials,undefined);});
+test('forged registration fails and challenge cannot be replayed',async()=>{const c=await(await post('register/options',{})).json();const r=await post('register/verify',{id:c.id,response:{id:'fake'}});assert.equal(r.status,400);const again=await(await post('register/verify',{id:c.id,response:{id:'fake'}})).json();assert.match(again.error,/already used|expired|invalid/);});
+test('there is no unauthenticated execution endpoint',async()=>assert.notEqual((await post('execute',{id:'fake'})).status,200));
+test('encoded invalid URL cannot crash server',async()=>{assert.equal((await fetch(origin+'/%ZZ')).status,400);assert.equal((await fetch(origin+'/')).status,200);});
+test('server and database files are not exposed',async()=>{assert.equal((await fetch(origin+'/server.mjs')).status,404);assert.equal((await fetch(origin+'/data/nirob.sqlite')).status,404);});

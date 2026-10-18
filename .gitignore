@@ -1,0 +1,7 @@
+node_modules/
+data/
+qa-data*/
+recording-data*/
+work/
+runtime/
+*.log

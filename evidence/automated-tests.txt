@@ -1,0 +1,54 @@
+
+> nirob-agent@3.0.0 test
+> node --test tests/*.test.mjs
+
+✔ drafting never posts a transaction (47.0324ms)
+✔ changed payment details change the approval binding (3.1748ms)
+✔ duplicate execution fails (3.5539ms)
+✔ card overspend is held (1.3137ms)
+✔ unsafe or manual events cannot fake agent trust (1.7308ms)
+✔ one user decision counts once (1.2848ms)
+✔ no income produces deficit, not imaginary savings (1.732ms)
+✔ affordable allocation does not exceed income (1.6946ms)
+✔ unaffordable savings goal reports shortfall (1.2899ms)
+✔ bill parser extracts fields and flags instructions (1.4209ms)
+✔ model cannot propose an execute tool (0.546ms)
+✔ model cannot invent an unspecified transfer amount (0.2766ms)
+✔ server database persists and audit tampering locks writes (42.5741ms)
+✔ server rejects missing CSRF token (849.5266ms)
+✔ server rejects another origin (5.3505ms)
+✔ locked session cannot modify accounts (7.2346ms)
+✔ state response does not expose credential public-key records (4.895ms)
+✔ forged registration fails and challenge cannot be replayed (32.891ms)
+✔ there is no unauthenticated execution endpoint (5.1986ms)
+✔ encoded invalid URL cannot crash server (12.4084ms)
+✔ server and database files are not exposed (11.2923ms)
+✔ 01 Bengali digits become ASCII digits (2.3079ms)
+✔ 02 whole BDT becomes exact minor units (0.65ms)
+✔ 03 fractional BDT keeps two decimal places (0.5518ms)
+✔ 04 negative and malformed amounts are rejected (0.328ms)
+✔ 05 Wilson lower bound is zero without observations (0.5426ms)
+✔ 06 twenty perfect results grant only tier one (0.5009ms)
+✔ 07 forty perfect results grant tier two (0.3403ms)
+✔ 08 eighty perfect results grant tier three (0.2861ms)
+✔ 09 unsafe result resets autonomy (0.371ms)
+✔ 10 debit card expense reduces linked bank balance (0.8452ms)
+✔ 11 credit card available credit decreases after purchase (0.4626ms)
+✔ 12 monthly summary includes manual cash expense (0.5335ms)
+✔ 13 other months do not change selected month (0.25ms)
+✔ 14 unknown payee creates risk signal (0.4314ms)
+✔ 15 new device creates risk signal (0.1971ms)
+✔ 16 hard payment cap blocks execution (1.8846ms)
+✔ 17 emergency reserve blocks execution (1.5924ms)
+✔ 18 duplicate bill reference blocks execution (0.2991ms)
+✔ 19 transfer request parses amount and recipient (2.2384ms)
+✔ 20 advisor uses actual recorded category and marks earnings idea as uncertain (30.0265ms)
+✔ 21 an overdue bill is held for provider review (0.23ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 42
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1488.9654
