@@ -1,5 +1,5 @@
 import {spawn,execFile} from 'node:child_process';import {existsSync,mkdirSync,writeFileSync,readFileSync,openSync} from 'node:fs';import {join,dirname} from 'node:path';import {fileURLToPath} from 'node:url';import {randomBytes} from 'node:crypto';
-const root=dirname(fileURLToPath(import.meta.url));process.chdir(root);const data=join(root,'data');mkdirSync(data,{recursive:true});const key=join(data,'model.key');if(!existsSync(key))writeFileSync(key,randomBytes(32).toString('hex'),{mode:0o600});
+const root=dirname(fileURLToPath(import.meta.url));process.chdir(root);const data=process.env.NIROB_DATA_DIR||join(root,'data');mkdirSync(data,{recursive:true});const key=join(data,'model.key');if(!existsSync(key))writeFileSync(key,randomBytes(32).toString('hex'),{mode:0o600});
 const binary=join(root,'runtime','llama','llama-server.exe'),model=join(root,'runtime','model.gguf');
 if(!existsSync(binary)||!existsSync(model)){console.error('The full Windows runtime is missing. Use the complete app package.');process.exit(1);}
 const log=openSync(join(data,'model.log'),'a');const children=[];

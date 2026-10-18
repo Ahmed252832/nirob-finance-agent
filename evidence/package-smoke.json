@@ -1,0 +1,11 @@
+{
+  "launcher": "passed",
+  "modelPlan": {
+    "tool": "draft_transfer",
+    "payee": "Rahim",
+    "amountBDT": 500
+  },
+  "freshCredentials": 0,
+  "freshFeedback": 0,
+  "auditValid": true
+}
