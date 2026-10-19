@@ -9,14 +9,16 @@ import {draft,execute,feedback,guard,trust,snapshot,uuid,day,month,accountBalanc
 import {amountToMinor} from './logic.mjs';
 import {runAgent} from './agent.mjs';
 import {extractBill} from './ocr.mjs';
+import {newConversation,runChat,recoverInterruptedChats} from './chat.mjs';
 const root=dirname(fileURLToPath(import.meta.url)),port=Number(process.env.NIROB_PORT||4177),origin=`http://localhost:${port}`,dataDir=process.env.NIROB_DATA_DIR||join(root,'data');
 const store=openStore(dataDir),sessions=new Map(),challenges=new Map(),approvals=new Map();
+recoverInterruptedChats(store);
 const json=(res,status,data)=>{res.writeHead(status,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify(data));};
 function session(req,res){const sid=/nirob_session=([^;]+)/.exec(req.headers.cookie||'')?.[1];let s=sessions.get(sid);if(!s||s.expires<Date.now()){s={id:randomBytes(32).toString('hex'),csrf:randomBytes(32).toString('hex'),authenticated:false,expires:Date.now()+8*3600000};sessions.set(s.id,s);res.setHeader('Set-Cookie',`nirob_session=${s.id}; HttpOnly; SameSite=Strict; Path=/; Max-Age=28800`);}return s;}
 function auth(s){if(!s.authenticated)throw Error('Unlock the workspace with your passkey first');}
 function newChallenge(s,purpose,binding=''){const id=uuid(),expires=Date.now()+120000;const signed=store.sign(JSON.stringify([id,s.id,purpose,binding,expires]));return {id,sid:s.id,purpose,binding,expires,signed};}
 function take(s,id,purpose){const c=challenges.get(id);challenges.delete(id);if(!c||c.sid!==s.id||c.purpose!==purpose||c.expires<Date.now())throw Error('Challenge expired, already used or invalid');return c;}
-function publicState(s){const state=store.read();return {...state,credentials:undefined,credentialCount:state.credentials.length,authenticated:s.authenticated,csrf:s.csrf,accounts:state.accounts.map(a=>({...a,balanceMinor:accountBalance(a,state.transactions,state.accounts)})),trust:trust(state),audit:store.audit().slice(-80).reverse(),auditValid:store.verify()};}
+function publicState(s){const state=store.read();return {...state,credentials:undefined,chats:s.authenticated?(state.chats||[]):[],traces:s.authenticated?state.traces:[],credentialCount:state.credentials.length,authenticated:s.authenticated,csrf:s.csrf,accounts:state.accounts.map(a=>({...a,balanceMinor:accountBalance(a,state.transactions,state.accounts)})),trust:trust(state),audit:store.audit().slice(-80).reverse(),auditValid:store.verify()};}
 async function body(req){const chunks=[];let size=0;for await(const chunk of req){size+=chunk.length;if(size>12*1024*1024)throw Error('Request is too large');chunks.push(chunk);}return JSON.parse(Buffer.concat(chunks).toString()||'{}');}
 async function handle(req,res){
  if(req.headers.host!==`localhost:${port}`){json(res,400,{error:`Open ${origin} (localhost is required for passkeys).`});return;}
@@ -50,6 +52,8 @@ async function handle(req,res){
    const receipt=store.mutate('payment_executed_after_webauthn',st=>{const pending=st.proposals.find(x=>x.id===p.id);if(!pending||snapshot(pending)!==c.binding)throw Error('Transaction changed');return {receipt:execute(st,p.id),approvalCredentialCount:progress.credentials.length,transactionHash:c.binding};});approvals.delete(p.id);return json(res,200,{verified:true,executed:true,...receipt});
   }
   auth(s);
+  if(path==='/api/chat/new')return json(res,200,newConversation(store));
+  if(path==='/api/chat')return json(res,200,await runChat(b,store));
   if(path==='/api/agent')return json(res,200,await runAgent(b.goal,store));
   if(path==='/api/budget/suggest')return json(res,200,suggestBudget({...state,skills:String(b.skills||'').slice(0,100)},b.month||month(),b.savingsMinor??state.savingsGoalMinor));
   if(path==='/api/budget/save'){if(!Number.isSafeInteger(b.limitMinor)||b.limitMinor<=0||!/^\d{4}-(0[1-9]|1[0-2])$/.test(b.month))throw Error('Invalid budget');return json(res,200,store.mutate('budget_saved',st=>{st.budgets[b.month]=b.limitMinor;return b;}));}
@@ -65,9 +69,9 @@ async function handle(req,res){
   if(path==='/api/alerts/block')return json(res,200,store.mutate('request_blocked',st=>{const a=st.alerts.find(a=>a.id===b.id&&a.status==='open');if(!a)throw Error('Alert not found');a.status='blocked';const p=st.proposals.find(p=>p.id===a.proposalId);if(p?.status==='pending')p.status='blocked';return a;}));
   return json(res,404,{error:'Unknown endpoint'});
  }
- const files={'/':'index.html','/app.js':'app.js','/styles.css':'styles.css','/webauthn.js':'node_modules/@simplewebauthn/browser/dist/bundle/index.umd.min.js'};
+ const files={'/':'index.html','/app.js':'app.js','/chat-format.mjs':'chat-format.mjs','/styles.css':'styles.css','/webauthn.js':'node_modules/@simplewebauthn/browser/dist/bundle/index.umd.min.js'};
  if(req.method!=='GET'||!files[path])return json(res,404,{error:'Not found'});
- const content=await readFile(join(root,files[path]));res.writeHead(200,{'Content-Type':path.endsWith('.css')?'text/css':path.endsWith('.js')?'text/javascript':'text/html','Cache-Control':'no-store','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'",'X-Content-Type-Options':'nosniff'});res.end(content);
+ const content=await readFile(join(root,files[path]));res.writeHead(200,{'Content-Type':path.endsWith('.css')?'text/css':(path.endsWith('.js')||path.endsWith('.mjs'))?'text/javascript':'text/html','Cache-Control':'no-store','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'none'",'X-Content-Type-Options':'nosniff'});res.end(content);
 }
 const server=createServer((req,res)=>handle(req,res).catch(e=>{if(!res.headersSent)json(res,400,{error:e.message});else res.end();}));
 server.listen(port,'127.0.0.1',()=>console.log(`Nirob Agent: ${origin} · synthetic payments only`));

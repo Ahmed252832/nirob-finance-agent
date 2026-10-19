@@ -21,3 +21,9 @@ The first local passkey enrollment is a bootstrap assumption: the legitimate use
 Authentication requests use user verification, not fingerprint-specific proof. Windows Hello or another authenticator may use face or PIN. Requiring only a fingerprint would not be a portable WebAuthn guarantee. The app's intended policy is user-verified final authorization with device-PIN fallback; earned autonomy cannot bypass it.
 
 The browser test verified actual cryptographic WebAuthn responses from virtual CTAP2 authenticators. It tested registration, payment posting, replay rejection, feedback deduplication, and a second distinct credential for a risky request. This is implementation evidence, not evidence that a human pressed a physical fingerprint reader.
+
+## Chat addition, 19 October 2026
+
+Conversation history is withheld from unauthenticated sessions. Chat mutations require the existing authenticated session, CSRF and origin checks. Response formatting escapes HTML before applying a limited set of formatting rules; it does not execute model HTML or links. Conversation text and financial context remain in the local application/model services. The SQLite database, audit logs and private backups may contain conversation content; protect them and never package `data/`.
+
+Prompt instructions can influence advice, so answers are not a security boundary or a certified financial recommendation. Neither chat text nor model output can approve payment. Explicit payment preparation additionally checks the planner against the requested recipient and amount/bill. Every final simulated execution still requires the separate verified, transaction-bound passkey challenge and Guardian checks. Retries reuse stored message results; an app restart does not automatically retry a payment draft.

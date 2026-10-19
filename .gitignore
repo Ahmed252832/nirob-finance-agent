@@ -5,3 +5,4 @@ recording-data*/
 work/
 runtime/
 *.log
+/eng.traineddata

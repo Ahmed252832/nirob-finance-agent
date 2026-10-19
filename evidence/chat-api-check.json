@@ -1,0 +1,17 @@
+{
+  "pass": true,
+  "scope": "Isolated demo database; programmatically signed test authenticator assertion; no physical browser/hardware test",
+  "checks": [
+    "Signed login accepted",
+    "Chat answered with real local model",
+    "Duplicate request reused response",
+    "Messages persisted",
+    "Chat transfer created a draft without posting",
+    "Signed final approval posted once",
+    "Locked session cannot read chats or traces",
+    "Chat formatter module served correctly"
+  ],
+  "reply": "Hello! How can I assist you today? Please let me know if you need help with budgeting, financial planning, or any other financial-related questions.\n\nDo you need help with budgeting or financial planning?",
+  "payment": "I've prepared a **BDT 500** payment to **Rahim**.\n\nReview the exact details, then approve with your passkey when you are ready. **No money has moved.**",
+  "auditValid": true
+}

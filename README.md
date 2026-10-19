@@ -1,24 +1,24 @@
 # Nirob — earned-autonomy financial agent
 
-English, local, single-user competition prototype. All accounts and payments are synthetic. Topic A: AI personal financial management. Version 3 replaces the earlier browser-only demo.
+English, local, single-user competition prototype. All accounts and payments are synthetic. Topic A: AI personal financial management. Version 3.1 adds persistent conversational financial advice.
 
 ## Run on this Windows computer
 
 1. Open `START_NIROB.cmd` in the complete application folder. Keep its window open.
 2. Wait for the local model to load and the browser to open **http://localhost:4177**.
 3. Select **Register your passkey**. Windows/browser may offer fingerprint, face or device PIN. Nirob does not receive biometric images. Configure Windows Hello if your computer has no platform authenticator.
-4. Open **Agent**. Try `Review my spending and suggest a budget that saves 10000 taka`, `Pay my electricity bill`, or `Send 500 to Rahim`.
+4. Open **Agent** to chat with Nirob. Start with `Suggest a small business idea based on my recorded spending`, then share your skills, time and budget. Follow up in the same conversation. You can also try `Review my spending and suggest a budget that saves 10000 taka`, `Pay my electricity bill`, or `Send 500 to Rahim`.
 5. Review a draft in **Bills & approvals**, then approve the exact payment with your passkey. The server posts simulated money only after verification.
 6. Upload `evidence/sample_bill.png` or `.pdf` to test bill extraction; inspect all fields before saving. Add cash spending under Activity.
 7. In Safety, generate and block an unknown request. Approving a flagged request instead requires two distinct registered passkeys. Two credentials are not proof of two physical devices.
 
-Requirements: Windows x64, Node.js 24+, modern Chrome/Edge with WebAuthn, sufficient RAM for the approximately 1.1 GB model, and Python with PyMuPDF for PDF extraction. Image OCR works through the bundled Node dependencies. For PDF support on another computer: `python -m pip install -r requirements.txt`. Initial dependency installation may need internet. Inference and the included English OCR data run locally. Ports 4177 and 8088 must be free.
+Requirements: Windows x64, Node.js 24+, modern Chrome/Edge with WebAuthn, sufficient RAM for the approximately 2.5 GB chat model (16 GB system RAM recommended), and Python with PyMuPDF for PDF extraction. Image OCR works through the bundled Node dependencies. For PDF support on another computer: `python -m pip install -r requirements.txt`. Initial dependency installation may need internet. Inference and the included English OCR data run locally. Ports 4177 and 8088 must be free.
 
-The complete folder includes Node dependencies and model files, but not Node/Python themselves. The source ZIP and Git bundle omit runtime/dependencies; use `npm ci`, obtain the files listed in `runtime-manifest.json`, extract llama.cpp into `runtime/llama`, place the model at `runtime/model.gguf` and OCR data at `runtime/eng.traineddata.gz`, then run the launcher. Preserve the third-party license notices.
+The complete folder includes Node dependencies and model files, but not Node/Python themselves. The source ZIP and Git bundle omit runtime/dependencies; use `npm ci`, obtain the files listed in `runtime-manifest.json`, extract llama.cpp into `runtime/llama`, place the original model at `runtime/model.gguf`; for the improved chat model, obtain and verify `chat-model-manifest.json` and place it at `runtime/chat-model.gguf` and OCR data at `runtime/eng.traineddata.gz`, then run the launcher. Preserve the third-party license notices.
 
 ## What changed
 
-* **Actual model-based agent:** local Qwen2.5-1.5B-Instruct through llama.cpp creates a bounded plan, invokes allowlisted tools, records outcomes and stops on a tool error. Grounded summaries explain what happened. It does not replan after failures and is not an unrestricted autonomous agent.
+* **Actual model-based agent:** local Qwen3-4B through llama.cpp (Qwen2.5-1.5B fallback if the chat model is absent) creates a bounded plan, invokes allowlisted tools, records outcomes and stops on a tool error. Grounded summaries explain what happened. It does not replan after failures and is not an unrestricted autonomous agent.
 * **Budget suggestion:** recorded income, expenses, unpaid bills and a savings goal produce a spending limit, available discretionary amount, savings shortfall and deficit. A small skill-based income experiment is suggested without earnings promises.
 * **Bill extraction:** English image OCR, PDF text extraction and scanned-PDF OCR with review before saving.
 * **Verified approval:** WebAuthn signatures, user verification, transaction-bound expiring single-use challenges, server-side execution and SQLite ledger.
@@ -35,8 +35,12 @@ The prototype is deliberately local. Do not bind it to a public interface or dep
 
 ## Verify and inspect
 
-Run `RUN_TESTS.cmd` or `npm test`: 42 automated tests were passing at packaging. See `SECURITY.md`, `ARCHITECTURE.md`, `COMPETITION.md`, `EVALUATION.md` and `DEMO_SCRIPT.md` for boundaries and evidence. Browser tests use Chrome virtual authenticators; physical fingerprint hardware was not tested. Model evaluation contains 10 actual model tasks plus 2 policy refusals before inference. These are narrow checks, not broad reliability certification.
+Run `RUN_TESTS.cmd` or `npm test`: 58 automated tests were passing at packaging. See `SECURITY.md`, `ARCHITECTURE.md`, `COMPETITION.md`, `EVALUATION.md` and `DEMO_SCRIPT.md` for boundaries and evidence. Browser tests use Chrome virtual authenticators; physical fingerprint hardware was not tested. Model evaluation contains 10 actual model tasks plus 2 policy refusals before inference. These are narrow checks, not broad reliability certification.
 
 ## Files
 
-`server.mjs`: HTTP, sessions, approval and scheduler. `domain.mjs`/`logic.mjs`: ledger, Guardian, budgets and trust. `agent.mjs`: model planning and permitted tools. `store.mjs`: SQLite and HMAC audit. `ocr.mjs`/`pdf_extract.py`: extraction. `app.js`/`index.html`/`styles.css`: English UI. `start.mjs`: local model/application launcher. `tests/`: repeatable unit/API tests. `evidence/`: disclosed test records and samples.
+`server.mjs`: HTTP, sessions, approval and scheduler. `domain.mjs`/`logic.mjs`: ledger, Guardian, budgets and trust. `agent.mjs`: model planning and permitted tools. `chat.mjs`: persistent conversations, recorded history and model replies. `chat-format.mjs`: escaped chat formatting. `store.mjs`: SQLite and HMAC audit. `ocr.mjs`/`pdf_extract.py`: extraction. `app.js`/`index.html`/`styles.css`: English UI. `start.mjs`: local model/application launcher. `tests/`: repeatable unit/API tests. `evidence/`: disclosed test records and samples.
+
+## Chat workspace
+
+See `CHAT_UPGRADE.md` for usage and limits. Earlier videos/decks show the version 3.0 workspace. The chat upgrade has separate evidence under `evidence/chat-*`; previous planning results apply to the earlier model, not automatically to the new one.

@@ -43,3 +43,13 @@ Each agent draft accepts one feedback outcome. Feedback refers to a recorded tra
 ## Deployment
 
 The submitted website is served locally at localhost:4177. It is not publicly hosted. A future hosted system needs HTTPS, verified user accounts, per-user isolation, secure recovery and enrollment, rate limits, secrets management, durable backups and permissioned bank/PSP adapters. A bank adapter would replace simulated posting only after separate authorization and end-to-end provider testing. Merely adding account numbers cannot supply transaction streams or card authorization control.
+
+## Version 3.1 conversation flow
+
+Authenticated chat → persistent conversation → exact payment-intent check → recorded financial context → local model response → escaped chat bubbles. Advice uses up to six recorded months, keeps missing months unknown, and marks the current month partial. The latest six messages are supplied to the model with bounded lengths; this is not unlimited memory. A computed record summary remains inspectable beside the reply.
+
+`POST /api/chat/new` creates a conversation; `POST /api/chat` accepts a message and an idempotency identifier. Messages and analysis traces live in the same SQLite state and HMAC audit as the ledger. Pending replies survive refresh; restart marks interrupted work for review. One generation runs at a time. This local prototype caps conversations at 50 and messages at 200 per conversation.
+
+Only explicit payment commands enter the existing planner. Its proposed payee/amount or bill ID must match the parsed command. Advice and conversational confirmations do not grant payment authority. A payment reply links to the existing review and fresh passkey approval flow.
+
+The launcher prefers the SHA-256-verified Qwen3-4B Q4_K_M asset in `chat-model-manifest.json`, with reasoning output disabled. It retains the older model as a fallback. Model output is constrained to a short structured reply, then rendered as ordinary paragraphs and lists. Internal model reasoning is not exposed.

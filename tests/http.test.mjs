@@ -11,3 +11,5 @@ test('forged registration fails and challenge cannot be replayed',async()=>{cons
 test('there is no unauthenticated execution endpoint',async()=>assert.notEqual((await post('execute',{id:'fake'})).status,200));
 test('encoded invalid URL cannot crash server',async()=>{assert.equal((await fetch(origin+'/%ZZ')).status,400);assert.equal((await fetch(origin+'/')).status,200);});
 test('server and database files are not exposed',async()=>{assert.equal((await fetch(origin+'/server.mjs')).status,404);assert.equal((await fetch(origin+'/data/nirob.sqlite')).status,404);});
+test('locked sessions cannot create or read conversations',async()=>{const r=await post('chat/new',{});assert.equal(r.status,400);assert.match((await r.json()).error,/Unlock/);const state=await(await fetch(origin+'/api/state')).json();assert.deepEqual(state.chats,[]);assert.deepEqual(state.traces,[]);});
+test('chat formatting module is served as JavaScript',async()=>{const r=await fetch(origin+'/chat-format.mjs');assert.equal(r.status,200);assert.match(r.headers.get('content-type'),/javascript/);});

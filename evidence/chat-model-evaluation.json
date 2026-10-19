@@ -1,0 +1,74 @@
+{
+  "context": {
+    "asOf": "2026-10-19",
+    "months": [
+      {
+        "month": "2026-10",
+        "label": "October 2026",
+        "incomeMinor": 6800000,
+        "spendMinor": 2649000,
+        "netMinor": 4151000,
+        "partial": true,
+        "transactions": 6
+      }
+    ],
+    "previousMonths": 0,
+    "previousCalendarMonth": "2026-09",
+    "hasPreviousCalendarMonth": false,
+    "topCategories": [
+      {
+        "category": "Housing",
+        "amountMinor": 1800000
+      },
+      {
+        "category": "Groceries",
+        "amountMinor": 450000
+      },
+      {
+        "category": "Dining",
+        "amountMinor": 220000
+      },
+      {
+        "category": "Transport",
+        "amountMinor": 120000
+      },
+      {
+        "category": "Subscriptions",
+        "amountMinor": 59000
+      }
+    ],
+    "trend": null,
+    "currentBudget": {
+      "incomeMinor": 6800000,
+      "spentMinor": 2649000,
+      "unpaidBillsMinor": 360000,
+      "savingsGoalMinor": 1000000,
+      "savingsShortfallMinor": 0,
+      "discretionaryRemainingMinor": 2791000,
+      "deficitMinor": 0
+    },
+    "sampleRows": 6,
+    "note": "Only the current month has records. Earlier-month comparisons are unavailable.",
+    "coverage": "Recorded expenses only. The current month is partial; unrecorded costs and future obligations may be missing. All accounts are simulated."
+  },
+  "results": [
+    {
+      "message": "Suggest a small business idea after analysing my previous months of account usage.",
+      "content": "I only have **October 2026** records, so I cannot analyse earlier months yet. In October 2026 so far, recorded income is **BDT 68,000** and spending is **BDT 26,490**. Keep essential bills and savings protected; recorded surplus is not automatically a safe business budget.\n\nIf you can create personalized budgeting templates for individuals, you could offer a service where you design and distribute budgeting tools that help people manage their finances effectively.\n\n1. Identify a specific skill you have, such as financial planning or spreadsheet design.\n2. Create a simple budgeting template using existing tools like Google Sheets or Excel.\n3. Offer the template for a small fee or as a paid service to individuals needing financial management tools.\n\nDo you have any specific skills in financial planning or spreadsheet design that you can use for this service?",
+      "model": "Qwen3-4B local assistant",
+      "seconds": 42.935
+    },
+    {
+      "message": "I am good at mathematics, can work 5 hours a week, and can spend at most 3000 taka. Which idea fits me?",
+      "content": "You can offer paid revision sessions for math students using existing tools.\n\n1. Identify a specific skill you have, such as math tutoring.\n2. Create a simple revision session using existing tools like Google Sheets or Excel.\n3. Offer paid revision sessions for math students, focusing on problem-solving and concept review.\n\nWould you like to create a simple math revision template using Google Sheets or Excel?",
+      "model": "Qwen3-4B local assistant",
+      "seconds": 36.883
+    },
+    {
+      "message": "Give me a practical first-week plan for that idea.",
+      "content": "Offer paid math revision sessions using existing tools.\n\n1. 1. Choose a specific math topic (e.g., algebra) and create a sample lesson plan (1 hour).\n2. 2. Contact three potential students privately via social media or email (1 hour).\n3. 3. Agree on a fee (e.g., BDT 500) and hold a short paid trial session (2 hours).\n4. 4. Collect feedback and review costs (1 hour).\n\nWould you like to create a simple math revision template using Google Sheets or Excel?",
+      "model": "Qwen3-4B local assistant",
+      "seconds": 50.52
+    }
+  ]
+}
