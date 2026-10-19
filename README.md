@@ -1,6 +1,6 @@
 # Nirob — earned-autonomy financial agent
 
-English, local, single-user competition prototype. All accounts and payments are synthetic. Topic A: AI personal financial management. Version 3.2 adds seven previous months of labelled demo history, curated coaching examples and separate bill/transfer trust progress.
+English, local, single-user competition prototype. All accounts and payments are synthetic. Topic A: AI personal financial management. Version 3.3 adds a personal workspace name, safe reset/import controls and measured automated review evidence.
 
 ## Run on this Windows computer
 
@@ -35,7 +35,7 @@ The prototype is deliberately local. Do not bind it to a public interface or dep
 
 ## Verify and inspect
 
-Run `RUN_TESTS.cmd` or `npm test`: 67 automated tests were passing at packaging. See `SECURITY.md`, `ARCHITECTURE.md`, `COMPETITION.md`, `EVALUATION.md` and `DEMO_SCRIPT.md` for boundaries and evidence. Browser tests use Chrome virtual authenticators; physical fingerprint hardware was not tested. Model evaluation contains 10 actual model tasks plus 2 policy refusals before inference. These are narrow checks, not broad reliability certification.
+Run `RUN_TESTS.cmd` or `npm test`: 76 automated tests were passing at packaging. See `SECURITY.md`, `ARCHITECTURE.md`, `COMPETITION.md`, `EVALUATION.md` and `DEMO_SCRIPT.md` for boundaries and evidence. Browser tests use Chrome virtual authenticators; physical fingerprint hardware was not tested. Model evaluation contains 10 actual model tasks plus 2 policy refusals before inference. These are narrow checks, not broad reliability certification.
 
 ## Files
 
@@ -48,3 +48,11 @@ See `CHAT_UPGRADE.md` for usage and limits. Earlier videos/decks show the versio
 ## History, coaching and trust
 
 Open **Activity** for the March–September 2026 synthetic history. Start a new chat to analyse it; old replies remain snapshots. Open **Safety & trust** for each scope’s level and review requirements. See `TRAINING_AND_TRUST.md` for honest review steps, training ideas and the distinction between in-context coaching and weight training. The model weights have not been retrained.
+
+## Personalize, reset and import
+
+Open **Settings & data** to rename the bottom-left label, add your own dated demo income/spending, preview/import a custom JSON file, clear demo records or reset the entire workspace. Data replacement requires an explicit confirmation and fresh passkey verification. It does not delete your separate exports/backups or authenticator-held passkeys. Read `PERSONAL_WORKSPACE.md` for precise behavior.
+
+Safety shows the automated 100-scenario review separately from personal earned trust, with the measured and required confidence bounds. The original failing run is preserved alongside the corrected run. Model/deterministic-validation counts are disclosed; passing these selected cases is not production reliability.
+
+When sharing with another person, use the source package plus its documented runtime dependencies, or copy the application **without `data/` or private backups**. Each installation creates its own local data and passkeys. Never include your enrolled credentials or audit/model keys in a download for another user. The supplied source ZIP and Git bundle exclude these files.

@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "scope": "Isolated temporary workspace, signed software-authenticator assertions, stub model used only to test concurrency; no browser or physical fingerprint test",
+  "checks": [
+    "Profile rename persists; locked mutation rejected",
+    "Reset requires fresh signed authorization",
+    "Import approval is bound to the previewed dataset",
+    "Import replaces demo data and old audit/uploads; retains profile/passkey and logs out",
+    "Custom posted demo income/expense supports exact decimal amounts",
+    "Reset is blocked during an in-flight model reply",
+    "Clear removes financial/chat/trust records and keeps enrollment",
+    "Factory reset removes profile and credentials, invalidates old challenges, and permits new enrollment"
+  ]
+}

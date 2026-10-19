@@ -61,3 +61,13 @@ The launcher prefers the SHA-256-verified Qwen3-4B Q4_K_M asset in `chat-model-m
 Financial context reads up to eight recorded months, marks the current month partial, calculates completed-month averages and category changes, and provides those facts to the model. `coaching.mjs` selects one of eight versioned fictional examples for in-context guidance; example selection and the fact that weights are unchanged are recorded with the reply. `plan-checks.mjs` replaces model-supplied weekly step durations with computed minute allowances that sum to the latest stated limit. The model supplies the activities; arithmetic checks do not prove that an activity is feasible in its allotted time.
 
 `trust-progress.mjs` exposes independent bill and transfer progress, minimum review/confidence thresholds and the number of additional correct reviews needed under a no-further-errors assumption. Incorrect and unsafe feedback are distinct; unsafe feedback still locks the scope. No data import or model evaluation populates actual user feedback.
+
+## Version 3.3: workspace ownership and data lifecycle
+
+`workspace-data.mjs` validates profile labels, explicitly synthetic dated bookkeeping entries and schemaVersion 1 JSON datasets. Imports whitelist fields, resolve account references, check dates and bounded integer amounts, and cannot inject credentials, trust or approvals. The preview returns counts/totals and a SHA-256 digest of the submitted dataset.
+
+`manage-data` WebAuthn challenges bind a fresh user-verification step to a clear/factory/import purpose and, for imports, the preview digest. A short-lived, single-use session grant plus the exact confirmation phrase is required for the mutation. Active agent/OCR work blocks reset; a workspace epoch invalidates pre-reset verification requests, and reset clears sessions, pending challenges and approval progress.
+
+The store replacement deletes old state/audit content with SQLite secure_delete enabled, starts a new audit chain, checkpoints and compacts the live database. Reset removes only the verified uploads location under the application data directory. This is an application-level deletion, not forensic erasure of disk history or external copies. Model/runtime files, service keys/logs and external backups remain. A factory reset removes profile/app credential records; a data-only reset/import retains them. Empty databases remain empty on restart.
+
+The automated review report is static evidence, not an input to the personal trust engine. The planner now validates explicit payment fields before model inference, normalizes known-bill preparation wording, and checks any returned payment tool against the request. Policy validation and model-invoked cases are counted separately.

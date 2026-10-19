@@ -33,3 +33,13 @@ Prompt instructions can influence advice, so answers are not a security boundary
 Synthetic archived history is labelled at row, dataset and UI levels. Installation validates unchanged current balances and sensitive state and records an audit event. It does not connect accounts, authorize transactions or change existing feedback. The new feedback validation rejects non-boolean and contradictory accepted/unsafe values. Separate incorrect/unsafe controls explain the unsafe lock; prior unsafe ratings are retained.
 
 The model's curated examples are static application code, not executable tools. They never authorize a payment. Example-inspired text can still be incorrect; explicit missing-data labels, computed financial facts and bounded weekly time allocations improve specific failure modes without constituting a general safety proof. Model weights and all passkey execution checks are unchanged.
+
+## Version 3.3 reset and import controls
+
+Profile/data mutation requires the existing authenticated session, same-origin and CSRF checks. Destructive replacement additionally requires a fresh signed WebAuthn assertion for the exact mode and file digest, a short-lived one-use grant, and a matching typed confirmation. Imported files cannot supply profile credentials, approval state or trust feedback. Changes to the approved file are rejected.
+
+Resets block while model/OCR work is pending, invalidate outstanding sessions/challenges, and reject verification continuations from an earlier workspace epoch. Test evidence uses isolated temporary databases and signed software-authenticator assertions. The production user's current data is not cleared by installation of this feature.
+
+Reset clears active database records, old audit content and temporary uploaded files. It does not claim to erase exported files, backups, OS history, hardware/authenticator credentials or all SSD remnants. No reset auto-backup is created. Installed models, service keys/logs and bundled synthetic review evidence are retained. Share distributable packages without the personal data directory.
+
+The original 100-scenario review exposed missing-recipient invention in the legacy agent route. Explicit transfer amount/recipient validation now runs before inference, and all model payment plans are checked against authorized request fields. The model still never receives an execution tool.

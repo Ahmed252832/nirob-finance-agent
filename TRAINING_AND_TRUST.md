@@ -51,6 +51,8 @@ Both the minimum count and confidence condition must pass. With every draft corr
 
 Dummy transactions, model examples, automated tests, chat messages, approvals and simply using the app do **not** add trust points. This is supervised preparation evidence within a demo, not proof of production banking reliability.
 
+Version 3.3 separately displays the 100-case automated review result (100/100; aggregate Wilson lower bound 96.30%, required 95%). This development benchmark does not raise your personal trust score. See `PERSONAL_WORKSPACE.md` for the result, editable workspace name and ways to clear/import your own demo data. Clearing or replacing demo data also clears personal feedback/trust.
+
 ## What the live evaluation taught us
 
 The first evaluation exposed a 3.5-hour plan for a 3-hour request and an insufficiently qualified suggestion to compare a partial month with completed months. Those failures are retained in `evidence/coaching-evaluation-initial.json`. The update supplies calculated completed-month category changes and adds checked weekly minute allocations; it does not pretend the original response passed. A time allowance is a planning constraint, not proof that the proposed activity can be completed in that time. Review scope and feasibility yourself.
