@@ -10,6 +10,7 @@ import {amountToMinor} from './logic.mjs';
 import {runAgent} from './agent.mjs';
 import {extractBill} from './ocr.mjs';
 import {newConversation,runChat,recoverInterruptedChats} from './chat.mjs';
+import {trustProgress} from './trust-progress.mjs';
 const root=dirname(fileURLToPath(import.meta.url)),port=Number(process.env.NIROB_PORT||4177),origin=`http://localhost:${port}`,dataDir=process.env.NIROB_DATA_DIR||join(root,'data');
 const store=openStore(dataDir),sessions=new Map(),challenges=new Map(),approvals=new Map();
 recoverInterruptedChats(store);
@@ -18,7 +19,7 @@ function session(req,res){const sid=/nirob_session=([^;]+)/.exec(req.headers.coo
 function auth(s){if(!s.authenticated)throw Error('Unlock the workspace with your passkey first');}
 function newChallenge(s,purpose,binding=''){const id=uuid(),expires=Date.now()+120000;const signed=store.sign(JSON.stringify([id,s.id,purpose,binding,expires]));return {id,sid:s.id,purpose,binding,expires,signed};}
 function take(s,id,purpose){const c=challenges.get(id);challenges.delete(id);if(!c||c.sid!==s.id||c.purpose!==purpose||c.expires<Date.now())throw Error('Challenge expired, already used or invalid');return c;}
-function publicState(s){const state=store.read();return {...state,credentials:undefined,chats:s.authenticated?(state.chats||[]):[],traces:s.authenticated?state.traces:[],credentialCount:state.credentials.length,authenticated:s.authenticated,csrf:s.csrf,accounts:state.accounts.map(a=>({...a,balanceMinor:accountBalance(a,state.transactions,state.accounts)})),trust:trust(state),audit:store.audit().slice(-80).reverse(),auditValid:store.verify()};}
+function publicState(s){const state=store.read();return {...state,credentials:undefined,chats:s.authenticated?(state.chats||[]):[],traces:s.authenticated?state.traces:[],credentialCount:state.credentials.length,authenticated:s.authenticated,csrf:s.csrf,accounts:state.accounts.map(a=>({...a,balanceMinor:accountBalance(a,state.transactions,state.accounts)})),trust:trust(state),trustProgress:{bill:trustProgress(state,'bill'),transfer:trustProgress(state,'transfer')},audit:store.audit().slice(-80).reverse(),auditValid:store.verify()};}
 async function body(req){const chunks=[];let size=0;for await(const chunk of req){size+=chunk.length;if(size>12*1024*1024)throw Error('Request is too large');chunks.push(chunk);}return JSON.parse(Buffer.concat(chunks).toString()||'{}');}
 async function handle(req,res){
  if(req.headers.host!==`localhost:${port}`){json(res,400,{error:`Open ${origin} (localhost is required for passkeys).`});return;}

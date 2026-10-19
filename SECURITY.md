@@ -27,3 +27,9 @@ The browser test verified actual cryptographic WebAuthn responses from virtual C
 Conversation history is withheld from unauthenticated sessions. Chat mutations require the existing authenticated session, CSRF and origin checks. Response formatting escapes HTML before applying a limited set of formatting rules; it does not execute model HTML or links. Conversation text and financial context remain in the local application/model services. The SQLite database, audit logs and private backups may contain conversation content; protect them and never package `data/`.
 
 Prompt instructions can influence advice, so answers are not a security boundary or a certified financial recommendation. Neither chat text nor model output can approve payment. Explicit payment preparation additionally checks the planner against the requested recipient and amount/bill. Every final simulated execution still requires the separate verified, transaction-bound passkey challenge and Guardian checks. Retries reuse stored message results; an app restart does not automatically retry a payment draft.
+
+## Version 3.2
+
+Synthetic archived history is labelled at row, dataset and UI levels. Installation validates unchanged current balances and sensitive state and records an audit event. It does not connect accounts, authorize transactions or change existing feedback. The new feedback validation rejects non-boolean and contradictory accepted/unsafe values. Separate incorrect/unsafe controls explain the unsafe lock; prior unsafe ratings are retained.
+
+The model's curated examples are static application code, not executable tools. They never authorize a payment. Example-inspired text can still be incorrect; explicit missing-data labels, computed financial facts and bounded weekly time allocations improve specific failure modes without constituting a general safety proof. Model weights and all passkey execution checks are unchanged.

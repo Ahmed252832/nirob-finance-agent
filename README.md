@@ -1,6 +1,6 @@
 # Nirob — earned-autonomy financial agent
 
-English, local, single-user competition prototype. All accounts and payments are synthetic. Topic A: AI personal financial management. Version 3.1 adds persistent conversational financial advice.
+English, local, single-user competition prototype. All accounts and payments are synthetic. Topic A: AI personal financial management. Version 3.2 adds seven previous months of labelled demo history, curated coaching examples and separate bill/transfer trust progress.
 
 ## Run on this Windows computer
 
@@ -35,7 +35,7 @@ The prototype is deliberately local. Do not bind it to a public interface or dep
 
 ## Verify and inspect
 
-Run `RUN_TESTS.cmd` or `npm test`: 58 automated tests were passing at packaging. See `SECURITY.md`, `ARCHITECTURE.md`, `COMPETITION.md`, `EVALUATION.md` and `DEMO_SCRIPT.md` for boundaries and evidence. Browser tests use Chrome virtual authenticators; physical fingerprint hardware was not tested. Model evaluation contains 10 actual model tasks plus 2 policy refusals before inference. These are narrow checks, not broad reliability certification.
+Run `RUN_TESTS.cmd` or `npm test`: 67 automated tests were passing at packaging. See `SECURITY.md`, `ARCHITECTURE.md`, `COMPETITION.md`, `EVALUATION.md` and `DEMO_SCRIPT.md` for boundaries and evidence. Browser tests use Chrome virtual authenticators; physical fingerprint hardware was not tested. Model evaluation contains 10 actual model tasks plus 2 policy refusals before inference. These are narrow checks, not broad reliability certification.
 
 ## Files
 
@@ -44,3 +44,7 @@ Run `RUN_TESTS.cmd` or `npm test`: 58 automated tests were passing at packaging.
 ## Chat workspace
 
 See `CHAT_UPGRADE.md` for usage and limits. Earlier videos/decks show the version 3.0 workspace. The chat upgrade has separate evidence under `evidence/chat-*`; previous planning results apply to the earlier model, not automatically to the new one.
+
+## History, coaching and trust
+
+Open **Activity** for the March–September 2026 synthetic history. Start a new chat to analyse it; old replies remain snapshots. Open **Safety & trust** for each scope’s level and review requirements. See `TRAINING_AND_TRUST.md` for honest review steps, training ideas and the distinction between in-context coaching and weight training. The model weights have not been retrained.

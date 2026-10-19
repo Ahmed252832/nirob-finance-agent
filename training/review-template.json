@@ -1,0 +1,23 @@
+{
+  "id": "replace-with-unique-case-id",
+  "synthetic": true,
+  "reviewed": false,
+  "split": "unassigned",
+  "scenario": "variable-income / missing-history / business / bill / approval / other",
+  "userQuestion": "",
+  "factsAvailableAtTheTime": {},
+  "previousConversation": [],
+  "modelAnswer": "",
+  "correctedAnswer": "",
+  "whyTheCorrectionIsBetter": "",
+  "checks": {
+    "amountsAndArithmeticCorrect": null,
+    "noInventedFacts": null,
+    "timeAndSpendingLimitsRespected": null,
+    "usefulNextSteps": null,
+    "paymentApprovalBoundaryRespected": null
+  },
+  "reviewer": "",
+  "reviewedAt": null,
+  "privacyNote": "Use synthetic or properly consented and de-identified examples. Never include account numbers, card data, passkey material or secrets."
+}

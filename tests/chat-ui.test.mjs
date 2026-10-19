@@ -1,6 +1,8 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';import vm from 'node:vm';import {randomUUID} from 'node:crypto';import {seed} from '../domain.mjs';import {formatChatText} from '../chat-format.mjs';
+import {addDemoHistory} from '../demo-history.mjs';import {trustProgress} from '../trust-progress.mjs';
 async function harness(){
  const s={...seed(),csrf:'fixture',authenticated:true,credentialCount:1,chats:[],audit:[],auditValid:true,trust:{tier:0,total:0,successes:0,lower:0,source:'test'}};
+ addDemoHistory(s,'2026-10-19');s.trustProgress={bill:trustProgress(s,'bill'),transfer:trustProgress(s,'transfer')};
  const nodes=new Map();const node=selector=>{if(!nodes.has(selector))nodes.set(selector,{innerHTML:'',textContent:'',classList:{toggle(){},add(){},remove(){}},scrollTop:0,scrollHeight:100,focus(){}});return nodes.get(selector);};
  const requests=[];let release;
  const sandbox={formatChatText,Intl,Date,console,crypto:{randomUUID},sessionStorage:{getItem:()=>null,setItem(){}},document:{querySelector:node,querySelectorAll:()=>[],addEventListener(){}},navigator:{clipboard:{writeText:async()=>{}}},setTimeout:()=>1,clearTimeout(){},requestAnimationFrame:fn=>fn(),fetch:async(url,options)=>{
@@ -10,8 +12,10 @@ async function harness(){
   return {ok:true,json:async()=>structuredClone(s)};
  }};
  const source=(await readFile(new URL('../app.js',import.meta.url),'utf8')).replace(/^import [^\r\n]*\r?\n/,'');
- const app=await vm.runInNewContext(`(async()=>{${source}\nreturn {openChat:()=>{view='agent';render()},sendChat};})()`,sandbox);
+ const app=await vm.runInNewContext(`(async()=>{${source}\nreturn {openChat:()=>{view='agent';render()},openView:name=>{view=name;render()},sendChat};})()`,sandbox);
  return {app,node,requests,release:()=>release(),isWaiting:()=>!!release};
 }
 test('chat view renders a composer and suggestions instead of raw tool logs',async()=>{const h=await harness();h.app.openChat();const html=h.node('#main').innerHTML;assert.match(html,/Talk to Nirob/);assert.match(html,/id="chat-form"/);assert.match(html,/A business idea/);assert.ok(!html.includes('Agent execution trace'));assert.ok(!html.includes('Inspect tool observations'));});
 test('sending a first message shows waiting feedback then the persisted conversation',async()=>{const h=await harness();h.app.openChat();const task=h.app.sendChat('I want a business idea');for(let i=0;i<20&&!h.isWaiting();i++)await new Promise(r=>setTimeout(r,0));assert.equal(h.isWaiting(),true);assert.match(h.node('#main').innerHTML,/Reading your message/);h.release();await task;const html=h.node('#main').innerHTML;assert.match(html,/I want a business idea/);assert.match(html,/<strong>tutoring<\/strong>/);assert.equal(h.requests.filter(r=>r.url==='/api/chat').length,1);});
+
+test('history and trust pages expose seven months and independent review progress',async()=>{const h=await harness();h.app.openView('activity');let html=h.node('#main').innerHTML;assert.match(html,/Seven months of synthetic history/);assert.match(html,/2026-03/);assert.match(html,/2026-09/);h.app.openView('safety');html=h.node('#main').innerHTML;assert.match(html,/Bills · Level 0/);assert.match(html,/Transfers · Level 0/);assert.match(html,/20 additional correct reviews/);assert.match(html,/Synthetic history and coaching examples add zero trust/);});

@@ -46,10 +46,18 @@ The submitted website is served locally at localhost:4177. It is not publicly ho
 
 ## Version 3.1 conversation flow
 
-Authenticated chat → persistent conversation → exact payment-intent check → recorded financial context → local model response → escaped chat bubbles. Advice uses up to six recorded months, keeps missing months unknown, and marks the current month partial. The latest six messages are supplied to the model with bounded lengths; this is not unlimited memory. A computed record summary remains inspectable beside the reply.
+Authenticated chat → persistent conversation → exact payment-intent check → recorded financial context → local model response → escaped chat bubbles. Advice uses up to eight recorded months, keeps missing months unknown, and marks the current month partial. The latest six messages are supplied to the model with bounded lengths; this is not unlimited memory. A computed record summary remains inspectable beside the reply.
 
 `POST /api/chat/new` creates a conversation; `POST /api/chat` accepts a message and an idempotency identifier. Messages and analysis traces live in the same SQLite state and HMAC audit as the ledger. Pending replies survive refresh; restart marks interrupted work for review. One generation runs at a time. This local prototype caps conversations at 50 and messages at 200 per conversation.
 
 Only explicit payment commands enter the existing planner. Its proposed payee/amount or bill ID must match the parsed command. Advice and conversational confirmations do not grant payment authority. A payment reply links to the existing review and fresh passkey approval flow.
 
 The launcher prefers the SHA-256-verified Qwen3-4B Q4_K_M asset in `chat-model-manifest.json`, with reasoning output disabled. It retains the older model as a fallback. Model output is constrained to a short structured reply, then rendered as ordinary paragraphs and lists. Internal model reasoning is not exposed.
+
+## Version 3.2: synthetic history and coached responses
+
+`demo-history.mjs` builds seven previous complete months in separate archived synthetic sources. The installation script backs up the local database and audit key, adds 77 labelled rows through the audited store mutation, and verifies existing credentials, bills, feedback, transactions and active balances are preserved. It is idempotent. It neither grants trust nor modifies the current seed's arithmetic.
+
+Financial context reads up to eight recorded months, marks the current month partial, calculates completed-month averages and category changes, and provides those facts to the model. `coaching.mjs` selects one of eight versioned fictional examples for in-context guidance; example selection and the fact that weights are unchanged are recorded with the reply. `plan-checks.mjs` replaces model-supplied weekly step durations with computed minute allowances that sum to the latest stated limit. The model supplies the activities; arithmetic checks do not prove that an activity is feasible in its allotted time.
+
+`trust-progress.mjs` exposes independent bill and transfer progress, minimum review/confidence thresholds and the number of additional correct reviews needed under a no-further-errors assumption. Incorrect and unsafe feedback are distinct; unsafe feedback still locks the scope. No data import or model evaluation populates actual user feedback.
