@@ -13,7 +13,7 @@ npm ci
 python -m pip install -r requirements.txt
 ```
 
-The Python command is for PDF support. A private repository requires GitHub access before cloning. Dependency installation and runtime downloads require internet; the configured model runs locally.
+The Python command is for PDF support. This public repository can be cloned without an invitation. Dependency installation and runtime downloads require internet; the configured model runs locally.
 
 ## 2. Obtain and verify the runtime
 

@@ -26,7 +26,7 @@ User declarations: five members; all full-time students at MIST, Bangladesh; all
 - [x] English presentation and recorded execution demo supplied alongside the app
 - [x] Local source repository/bundle prepared
 - [x] Hosted source repository: [Ahmed252832/nirob-finance-agent](https://github.com/Ahmed252832/nirob-finance-agent), uploaded at the owner's request on 20 October 2026
-- [ ] Provide repository access to judges as required: the repository is currently private
+- [x] Repository made public at the owner's request; judges can access the source without an invitation
 - [ ] Team name, member roster and documentary eligibility/registration evidence
 - [ ] Team reviews deck and performs a physical-device demonstration
 - [ ] Team uploads materials to the official submission destination
