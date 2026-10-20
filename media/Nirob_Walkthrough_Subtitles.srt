@@ -1,0 +1,379 @@
+1
+00:00:00,000 --> 00:00:06,255
+This walkthrough shows Nirob version three point three, a local
+personal finance prototype.
+
+2
+00:00:06,255 --> 00:00:09,004
+All balances and payments are synthetic.
+
+3
+00:00:09,004 --> 00:00:13,609
+The recording uses a separate demo workspace and a virtual passkey.
+
+4
+00:00:13,609 --> 00:00:16,564
+Your saved personal workspace is untouched.
+
+5
+00:00:16,564 --> 00:00:20,276
+Model waiting time is shortened in the edited footage.
+
+6
+00:00:21,776 --> 00:00:26,932
+Open the complete Nirob Agent folder and double click START NIROB dot
+cmd.
+
+7
+00:00:26,932 --> 00:00:29,022
+Keep the launcher window open.
+
+8
+00:00:29,022 --> 00:00:33,621
+Wait for the browser to open localhost, port four one seven seven.
+
+9
+00:00:33,621 --> 00:00:36,966
+The full folder needs Node twenty four or later.
+
+10
+00:00:36,966 --> 00:00:40,938
+A source ZIP also needs its dependencies and model files.
+
+11
+00:00:40,938 --> 00:00:44,631
+PDF reading needs Python and the listed requirements.
+
+12
+00:00:46,131 --> 00:00:48,347
+Choose Register your passkey.
+
+13
+00:00:48,347 --> 00:00:54,841
+On your computer, the browser and Windows may offer fingerprint, face,
+or device PIN.
+
+14
+00:00:54,841 --> 00:00:59,272
+Nirob receives a signed response, never a biometric image.
+
+15
+00:00:59,272 --> 00:01:06,530
+This recording uses a virtual authenticator, so it does not show a
+physical fingerprint prompt.
+
+16
+00:01:06,530 --> 00:01:09,891
+On later visits, choose Unlock with passkey.
+
+17
+00:01:11,391 --> 00:01:15,793
+Open Agent workspace and type your question into the chat box.
+
+18
+00:01:15,793 --> 00:01:25,803
+Here, we ask for a business idea based on recorded spending, with
+maths tutoring skills, three hours a week, and a two thousand taka
+ceiling.
+
+19
+00:01:25,803 --> 00:01:30,630
+The local Qwen three, four billion parameter model produces a reply.
+
+20
+00:01:30,630 --> 00:01:34,677
+Read its assumptions and check suggestions before acting.
+
+21
+00:01:36,177 --> 00:01:39,534
+Expand Financial context used beneath the reply.
+
+22
+00:01:39,534 --> 00:01:47,018
+This demo contains seven complete synthetic months, March through
+September, plus the current month so far.
+
+23
+00:01:47,018 --> 00:01:50,585
+Check income, spending, and net recorded cash flow.
+
+24
+00:01:50,585 --> 00:01:55,341
+Missing cash purchases or future commitments can change the picture.
+
+25
+00:01:55,341 --> 00:01:59,887
+The current partial month is not a complete month for comparison.
+
+26
+00:02:01,387 --> 00:02:04,394
+Ask a follow-up in the same conversation.
+
+27
+00:02:04,394 --> 00:02:08,353
+Here, we request a first-week plan within three hours.
+
+28
+00:02:08,353 --> 00:02:12,606
+Nirob uses recent messages and recorded financial context.
+
+29
+00:02:12,606 --> 00:02:16,639
+This is in-context coaching, not a newly trained model.
+
+30
+00:02:16,639 --> 00:02:24,412
+Check that the suggested activities fit your own skills and situation;
+an idea is not a promise of income.
+
+31
+00:02:25,912 --> 00:02:27,649
+Open Budget and advisor.
+
+32
+00:02:27,649 --> 00:02:31,991
+Enter a savings goal and your skills, then request a budget.
+
+33
+00:02:31,991 --> 00:02:36,839
+The app calculates from recorded income, expenses and unpaid bills.
+
+34
+00:02:36,839 --> 00:02:39,371
+Review any shortfall before saving.
+
+35
+00:02:39,371 --> 00:02:47,693
+A saved budget is a plan for the demo; it does not move money or
+guarantee that unrecorded costs have been covered.
+
+36
+00:02:49,193 --> 00:02:54,043
+Open Bills and approvals and upload the included sample bill image.
+
+37
+00:02:54,043 --> 00:02:56,432
+The app extracts readable fields.
+
+38
+00:02:56,432 --> 00:03:00,920
+Check the payee, amount, reference and due date before saving.
+
+39
+00:03:00,920 --> 00:03:06,494
+English image OCR and PDF extraction are supported, but recognition
+can fail.
+
+40
+00:03:06,494 --> 00:03:14,168
+The clean sample used here does not establish accuracy on handwriting,
+Bengali bills or noisy photographs.
+
+41
+00:03:15,668 --> 00:03:19,410
+Start a chat and ask, Send five hundred to Rahim.
+
+42
+00:03:19,410 --> 00:03:22,159
+The app prepares a draft for review.
+
+43
+00:03:22,159 --> 00:03:29,491
+An explicit amount and recipient are required; incomplete requests
+should ask for clarification.
+
+44
+00:03:29,491 --> 00:03:32,316
+The AI has no payment execution tool.
+
+45
+00:03:32,316 --> 00:03:38,578
+A known saved bill can also be requested by name, such as Pay my
+electricity bill.
+
+46
+00:03:40,078 --> 00:03:41,813
+Open Bills and approvals.
+
+47
+00:03:41,813 --> 00:03:44,310
+Compare the draft with your request.
+
+48
+00:03:44,310 --> 00:03:49,859
+Correct, incorrect, and unsafe draft feedback is separate from payment
+approval.
+
+49
+00:03:49,859 --> 00:03:56,450
+Choose Review and approve, inspect the exact amount and recipient,
+then Verify passkey and pay.
+
+50
+00:03:56,450 --> 00:04:04,288
+The server verifies a fresh challenge bound to this transaction before
+posting the simulated payment to Activity.
+
+51
+00:04:05,788 --> 00:04:11,063
+Open Activity and enter a cash purchase with its description, amount
+and category.
+
+52
+00:04:11,063 --> 00:04:15,052
+This makes the purchase available to the monthly calculations.
+
+53
+00:04:15,052 --> 00:04:17,625
+These are manually entered demo records.
+
+54
+00:04:17,625 --> 00:04:26,824
+Nirob does not automatically receive real card transactions or
+intercept a Visa request simply because an account or card is listed
+in the app.
+
+55
+00:04:28,324 --> 00:04:32,134
+In Safety and trust, generate an unknown demo request.
+
+56
+00:04:32,134 --> 00:04:35,168
+Inspect the alert and choose Block request.
+
+57
+00:04:35,168 --> 00:04:39,895
+This demonstrates the app holding and blocking a simulated request.
+
+58
+00:04:39,895 --> 00:04:42,717
+It does not monitor a real bank account.
+
+59
+00:04:42,717 --> 00:04:51,254
+Flagged approvals require two distinct registered passkeys, which do
+not necessarily mean two different physical devices.
+
+60
+00:04:52,754 --> 00:05:04,960
+The automated review card shows one hundred passing development
+scenarios and a Wilson lower bound of ninety six point three percent,
+against the unchanged ninety five percent requirement.
+
+61
+00:05:04,960 --> 00:05:10,673
+Eighty cases invoked the model; twenty checked clarification or policy
+before inference.
+
+62
+00:05:10,673 --> 00:05:13,659
+Personal bill and transfer trust are separate.
+
+63
+00:05:13,659 --> 00:05:18,529
+Automated results never grant your personal trust or bypass final
+approval.
+
+64
+00:05:20,029 --> 00:05:23,720
+Open Settings and data, or click the bottom-left name.
+
+65
+00:05:23,720 --> 00:05:27,957
+Replace My workspace with your own label and choose Save name.
+
+66
+00:05:27,957 --> 00:05:32,332
+The previous fixed MIST label has been removed from the product.
+
+67
+00:05:32,332 --> 00:05:35,749
+The new name is saved for this local installation.
+
+68
+00:05:35,749 --> 00:05:38,825
+The application itself is still called Nirob.
+
+69
+00:05:40,325 --> 00:05:49,722
+In Settings and data, choose income or spending, select an active demo
+account, and enter the amount, description, category and date.
+
+70
+00:05:49,722 --> 00:05:53,538
+Earlier dates let you create your own monthly history.
+
+71
+00:05:53,538 --> 00:05:58,555
+If the workspace is empty, add a synthetic source under Accounts
+first.
+
+72
+00:05:58,555 --> 00:06:03,430
+These entries are bookkeeping records, not live banking transactions.
+
+73
+00:06:04,930 --> 00:06:11,270
+Download the example JSON file and edit its sample accounts,
+transactions and bills.
+
+74
+00:06:11,270 --> 00:06:15,724
+Select your file and preview the counts, months and totals.
+
+75
+00:06:15,724 --> 00:06:20,856
+Review replacement, type REPLACE DEMO DATA, and verify your passkey.
+
+76
+00:06:20,856 --> 00:06:28,630
+Import replaces the dataset and resets personal trust while keeping
+your name and passkey registration.
+
+77
+00:06:28,630 --> 00:06:30,970
+Unlock again after replacement.
+
+78
+00:06:32,470 --> 00:06:41,696
+Clear demo records keeps your workspace name and passkey, while
+removing financial records, chats, feedback and old audit history.
+
+79
+00:06:41,696 --> 00:06:47,232
+Reset entire workspace also removes the profile and app passkey
+registrations.
+
+80
+00:06:47,232 --> 00:06:52,555
+Each action needs its exact confirmation phrase and fresh passkey
+approval.
+
+81
+00:06:52,555 --> 00:06:57,168
+Separate exports, backups and authenticator-held passkeys remain.
+
+82
+00:06:57,168 --> 00:07:01,284
+The reset shown here affects only our recording workspace.
+
+83
+00:07:02,784 --> 00:07:10,734
+You can now name the workspace, add your own demo data, chat about
+goals, prepare payments and review the evidence.
+
+84
+00:07:10,734 --> 00:07:13,776
+Every final payment still requires approval.
+
+85
+00:07:13,776 --> 00:07:16,886
+The current prototype has no bank connection.
+
+86
+00:07:16,886 --> 00:07:20,758
+Keep private data folders out of shared source packages.
+
+87
+00:07:20,758 --> 00:07:24,560
+Close the launcher when you finish using the local app.

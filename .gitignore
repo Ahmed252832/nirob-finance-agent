@@ -6,3 +6,11 @@ work/
 runtime/
 *.log
 /eng.traineddata
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.sqlite
+*.sqlite-*
+backups/

@@ -1,0 +1,140 @@
+1
+00:00:00,000 --> 00:00:04,806
+Nirob is a local personal finance agent with a conversational
+workspace.
+
+2
+00:00:04,806 --> 00:00:10,681
+This version three point three demonstration uses synthetic money and
+a virtual passkey.
+
+3
+00:00:10,681 --> 00:00:12,817
+Model waiting time is shortened.
+
+4
+00:00:14,317 --> 00:00:19,063
+Ask for a business idea and share your skills, time and budget.
+
+5
+00:00:19,063 --> 00:00:23,734
+A real local Qwen three model answers using recorded finances.
+
+6
+00:00:23,734 --> 00:00:27,275
+Read its assumptions; income is not guaranteed.
+
+7
+00:00:28,775 --> 00:00:36,206
+The reply exposes the financial context used: seven completed
+synthetic months and the current month so far.
+
+8
+00:00:36,206 --> 00:00:39,647
+Follow-up questions stay in the same conversation.
+
+9
+00:00:41,147 --> 00:00:45,742
+Upload a bill image and inspect the extracted fields before saving.
+
+10
+00:00:45,742 --> 00:00:52,669
+The advisor also suggests a budget from recorded income, expenses,
+unpaid bills and a savings target.
+
+11
+00:00:54,169 --> 00:00:57,148
+Ask to send five hundred taka to Rahim.
+
+12
+00:00:57,148 --> 00:00:59,209
+The agent prepares a draft.
+
+13
+00:00:59,209 --> 00:01:05,777
+It cannot execute a payment, and a missing amount or recipient
+requires clarification.
+
+14
+00:01:07,277 --> 00:01:10,757
+Review the exact payment, then verify a passkey.
+
+15
+00:01:10,757 --> 00:01:14,237
+Server verification is bound to the transaction.
+
+16
+00:01:14,237 --> 00:01:18,296
+Only then is the simulated payment posted to the ledger.
+
+17
+00:01:18,296 --> 00:01:21,414
+The recording uses a virtual authenticator.
+
+18
+00:01:22,914 --> 00:01:26,980
+Unknown demo requests are held for review and can be blocked.
+
+19
+00:01:26,980 --> 00:01:30,047
+Real bank or Visa monitoring is not connected.
+
+20
+00:01:30,047 --> 00:01:34,046
+The Guardian and approval boundary remain outside the model.
+
+21
+00:01:35,546 --> 00:01:40,999
+After fixing two failure patterns, one hundred development scenarios
+passed.
+
+22
+00:01:40,999 --> 00:01:45,735
+The measured Wilson lower bound is ninety six point three percent.
+
+23
+00:01:45,735 --> 00:01:50,399
+Eighty cases invoked the model; twenty were pre-inference checks.
+
+24
+00:01:50,399 --> 00:01:53,412
+These results do not raise personal trust.
+
+25
+00:01:54,912 --> 00:02:00,445
+Settings now lets each user rename the workspace and add their own
+demo records.
+
+26
+00:02:00,445 --> 00:02:02,865
+There is no fixed university label.
+
+27
+00:02:04,365 --> 00:02:09,151
+Preview a custom dataset, confirm replacement and verify a passkey.
+
+28
+00:02:09,151 --> 00:02:14,652
+Import resets personal trust while keeping the workspace name and
+enrollment.
+
+29
+00:02:14,652 --> 00:02:17,652
+Clear and full reset are separate options.
+
+30
+00:02:19,152 --> 00:02:26,108
+Version three point three has seventy six automated test passes and
+eight signed integration checks.
+
+31
+00:02:26,108 --> 00:02:30,003
+Preparation autonomy can be earned from reviewed drafts.
+
+32
+00:02:30,003 --> 00:02:33,551
+Every final execution still requires your approval.
+
+33
+00:02:33,551 --> 00:02:35,499
+All money remains simulated.

@@ -2,6 +2,17 @@
 
 English, local, single-user competition prototype. All accounts and payments are synthetic. Topic A: AI personal financial management. Version 3.3 adds a personal workspace name, safe reset/import controls and measured automated review evidence.
 
+## Project package
+
+- [Setup after cloning from GitHub](docs/GITHUB_SETUP.md)
+- [Execution demo — 2:37](media/Nirob_Execution_Demo.mp4)
+- [Windows walkthrough — 7:26](media/Nirob_Step_by_Step_Walkthrough.mp4)
+- [Presentation — 12 slides](media/Nirob_Submission_Deck.pptx)
+- [Bengali concept guides and version notes](docs/bengali/README.md)
+- [Architecture](ARCHITECTURE.md), [security](SECURITY.md), [evaluation](EVALUATION.md), and [personal workspace controls](PERSONAL_WORKSPACE.md)
+
+This repository contains the current source, tests, synthetic evidence, coaching examples, documentation and media. Installed dependencies, model binaries, local databases, credentials and private backups are excluded. Obtain runtime assets from the pinned manifests as described in the setup guide. Earlier historical evaluations and concept guides are labelled by their version; they do not replace current implementation evidence.
+
 ## Run on this Windows computer
 
 1. Open `START_NIROB.cmd` in the complete application folder. Keep its window open.
