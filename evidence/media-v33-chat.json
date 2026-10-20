@@ -1,0 +1,404 @@
+[
+  {
+    "id": "5debbafc-784f-45d8-9281-90e78510406f",
+    "title": "Suggest a small business idea based on my prev",
+    "createdAt": "2026-10-20T14:12:46.999Z",
+    "messages": [
+      {
+        "id": "b640ac5d-00e0-4d09-be07-39506db9d907",
+        "requestId": "64272f65-19fb-42fc-a974-31e614f469d0",
+        "role": "user",
+        "content": "Suggest a small business idea based on my previous months of spending. I can tutor maths for 3 hours a week and can risk at most 2000 taka.",
+        "status": "complete",
+        "at": "2026-10-20T14:12:47.011Z"
+      },
+      {
+        "id": "8e8285b6-a3f9-4f56-ace3-e86888b7ca97",
+        "requestId": "64272f65-19fb-42fc-a974-31e614f469d0",
+        "role": "assistant",
+        "content": "I reviewed 8 recorded month(s). In October 2026 so far, recorded income is **BDT 68,000** and spending is **BDT 26,490**. The earlier seven-month dataset is **synthetic demo history**, not your actual bank history. Across 7 completed recorded months, average monthly income is **BDT 62,714.29** and spending is **BDT 38,925.71**. Recorded spending changed by **BDT 300** between August 2026 and September 2026; missing expenses could affect that comparison. Keep essential bills and savings protected; recorded surplus is not automatically a safe business budget.\n\nConsider a maths tutoring service for students needing revision. Your 3-hour weekly availability and BDT 2000 budget allow for a small trial. Use existing materials and focus on one topic initially.\n\n1. Select a specific maths topic you're confident in teaching.\n2. Create a sample lesson using your existing resources.\n3. Reach out to a few students for a trial session and agree on a fee.\n4. Track the trial's success before committing to a full schedule.\n\nWhich maths topic are you most comfortable teaching?",
+        "status": "complete",
+        "at": "2026-10-20T14:12:47.012Z",
+        "model": "Qwen3-4B · local assistant",
+        "scheduleCheck": null,
+        "coaching": {
+          "version": "1.0",
+          "exampleId": "maths-business",
+          "method": "In-context example; model weights unchanged"
+        },
+        "context": {
+          "asOf": "2026-10-20",
+          "months": [
+            {
+              "month": "2026-03",
+              "label": "March 2026",
+              "incomeMinor": 5800000,
+              "spendMinor": 3484000,
+              "netMinor": 2316000,
+              "partial": false,
+              "transactions": 11
+            },
+            {
+              "month": "2026-04",
+              "label": "April 2026",
+              "incomeMinor": 5800000,
+              "spendMinor": 3624000,
+              "netMinor": 2176000,
+              "partial": false,
+              "transactions": 11
+            },
+            {
+              "month": "2026-05",
+              "label": "May 2026",
+              "incomeMinor": 6000000,
+              "spendMinor": 3734000,
+              "netMinor": 2266000,
+              "partial": false,
+              "transactions": 11
+            },
+            {
+              "month": "2026-06",
+              "label": "June 2026",
+              "incomeMinor": 6200000,
+              "spendMinor": 3894000,
+              "netMinor": 2306000,
+              "partial": false,
+              "transactions": 11
+            },
+            {
+              "month": "2026-07",
+              "label": "July 2026",
+              "incomeMinor": 6500000,
+              "spendMinor": 4534000,
+              "netMinor": 1966000,
+              "partial": false,
+              "transactions": 11
+            },
+            {
+              "month": "2026-08",
+              "label": "August 2026",
+              "incomeMinor": 6800000,
+              "spendMinor": 3974000,
+              "netMinor": 2826000,
+              "partial": false,
+              "transactions": 11
+            },
+            {
+              "month": "2026-09",
+              "label": "September 2026",
+              "incomeMinor": 6800000,
+              "spendMinor": 4004000,
+              "netMinor": 2796000,
+              "partial": false,
+              "transactions": 11
+            },
+            {
+              "month": "2026-10",
+              "label": "October 2026",
+              "incomeMinor": 6800000,
+              "spendMinor": 2649000,
+              "netMinor": 4151000,
+              "partial": true,
+              "transactions": 6
+            }
+          ],
+          "previousMonths": 7,
+          "previousCalendarMonth": "2026-09",
+          "hasPreviousCalendarMonth": true,
+          "topCategories": [
+            {
+              "category": "Housing",
+              "amountMinor": 14400000
+            },
+            {
+              "category": "Groceries",
+              "amountMinor": 5780000
+            },
+            {
+              "category": "Dining",
+              "amountMinor": 2400000
+            },
+            {
+              "category": "Utilities",
+              "amountMinor": 2385000
+            },
+            {
+              "category": "Transport",
+              "amountMinor": 1740000
+            }
+          ],
+          "trend": {
+            "from": "2026-08",
+            "to": "2026-09",
+            "spendChangeMinor": 30000
+          },
+          "completedAverages": {
+            "months": 7,
+            "incomeMinor": 6271429,
+            "spendMinor": 3892571,
+            "categoryChanges": [
+              {
+                "category": "Dining",
+                "from": "2026-03",
+                "to": "2026-09",
+                "firstMinor": 180000,
+                "lastMinor": 450000,
+                "changeMinor": 270000
+              },
+              {
+                "category": "Groceries",
+                "from": "2026-03",
+                "to": "2026-09",
+                "firstMinor": 690000,
+                "lastMinor": 820000,
+                "changeMinor": 130000
+              },
+              {
+                "category": "Subscriptions",
+                "from": "2026-03",
+                "to": "2026-09",
+                "firstMinor": 59000,
+                "lastMinor": 99000,
+                "changeMinor": 40000
+              }
+            ]
+          },
+          "currentBudget": {
+            "incomeMinor": 6800000,
+            "spentMinor": 2649000,
+            "unpaidBillsMinor": 360000,
+            "savingsGoalMinor": 1000000,
+            "savingsShortfallMinor": 0,
+            "discretionaryRemainingMinor": 2791000,
+            "deficitMinor": 0
+          },
+          "sampleRows": 83,
+          "note": "Using 8 recorded month(s). Missing months are not treated as zero spending.",
+          "coverage": "Recorded expenses only. The current month is partial; unrecorded costs and future obligations may be missing. All accounts are simulated.",
+          "syntheticHistory": {
+            "version": 1,
+            "months": [
+              "2026-03",
+              "2026-04",
+              "2026-05",
+              "2026-06",
+              "2026-07",
+              "2026-08",
+              "2026-09"
+            ],
+            "rows": 77,
+            "installedAt": "2026-10-20T14:09:42.277Z",
+            "asOf": "2026-10-20",
+            "description": "Seven complete synthetic months in separate archived accounts. Current balances, trust and credentials are unchanged."
+          }
+        },
+        "traceId": "fb756d7b-b43b-436e-ac51-b3954781d588",
+        "kind": "advice",
+        "latencyMs": 97154
+      },
+      {
+        "id": "f635635b-bbf6-43de-a321-ce5be20f9e42",
+        "requestId": "19ff69c5-1634-436c-b36e-aa47f5058e65",
+        "role": "user",
+        "content": "Give me a first-week plan within those 3 hours.",
+        "status": "complete",
+        "at": "2026-10-20T14:14:33.297Z"
+      },
+      {
+        "id": "6334b992-4207-4c87-a181-819173a474d2",
+        "requestId": "19ff69c5-1634-436c-b36e-aa47f5058e65",
+        "role": "assistant",
+        "content": "Test a maths tutoring service with a small trial using existing tools.\n\n1. Prepare one sample lesson on a chosen topic. Time allowance: **45 minutes**.\n2. Contact three possible learners and discuss their needs. Time allowance: **45 minutes**.\n3. Agree a fee and deliver one trial session. Time allowance: **45 minutes**.\n4. Review feedback, time and costs. Time allowance: **45 minutes**.\n\nWhich topic will you use for the trial?",
+        "status": "complete",
+        "at": "2026-10-20T14:14:33.299Z",
+        "model": "Qwen3-4B · local assistant",
+        "scheduleCheck": {
+          "status": "computed",
+          "hours": 3,
+          "totalMinutes": 180,
+          "stepMinutes": [
+            45,
+            45,
+            45,
+            45
+          ]
+        },
+        "coaching": {
+          "version": "1.0",
+          "exampleId": "week-plan",
+          "method": "In-context example; model weights unchanged"
+        },
+        "context": {
+          "asOf": "2026-10-20",
+          "months": [
+            {
+              "month": "2026-03",
+              "label": "March 2026",
+              "incomeMinor": 5800000,
+              "spendMinor": 3484000,
+              "netMinor": 2316000,
+              "partial": false,
+              "transactions": 11
+            },
+            {
+              "month": "2026-04",
+              "label": "April 2026",
+              "incomeMinor": 5800000,
+              "spendMinor": 3624000,
+              "netMinor": 2176000,
+              "partial": false,
+              "transactions": 11
+            },
+            {
+              "month": "2026-05",
+              "label": "May 2026",
+              "incomeMinor": 6000000,
+              "spendMinor": 3734000,
+              "netMinor": 2266000,
+              "partial": false,
+              "transactions": 11
+            },
+            {
+              "month": "2026-06",
+              "label": "June 2026",
+              "incomeMinor": 6200000,
+              "spendMinor": 3894000,
+              "netMinor": 2306000,
+              "partial": false,
+              "transactions": 11
+            },
+            {
+              "month": "2026-07",
+              "label": "July 2026",
+              "incomeMinor": 6500000,
+              "spendMinor": 4534000,
+              "netMinor": 1966000,
+              "partial": false,
+              "transactions": 11
+            },
+            {
+              "month": "2026-08",
+              "label": "August 2026",
+              "incomeMinor": 6800000,
+              "spendMinor": 3974000,
+              "netMinor": 2826000,
+              "partial": false,
+              "transactions": 11
+            },
+            {
+              "month": "2026-09",
+              "label": "September 2026",
+              "incomeMinor": 6800000,
+              "spendMinor": 4004000,
+              "netMinor": 2796000,
+              "partial": false,
+              "transactions": 11
+            },
+            {
+              "month": "2026-10",
+              "label": "October 2026",
+              "incomeMinor": 6800000,
+              "spendMinor": 2649000,
+              "netMinor": 4151000,
+              "partial": true,
+              "transactions": 6
+            }
+          ],
+          "previousMonths": 7,
+          "previousCalendarMonth": "2026-09",
+          "hasPreviousCalendarMonth": true,
+          "topCategories": [
+            {
+              "category": "Housing",
+              "amountMinor": 14400000
+            },
+            {
+              "category": "Groceries",
+              "amountMinor": 5780000
+            },
+            {
+              "category": "Dining",
+              "amountMinor": 2400000
+            },
+            {
+              "category": "Utilities",
+              "amountMinor": 2385000
+            },
+            {
+              "category": "Transport",
+              "amountMinor": 1740000
+            }
+          ],
+          "trend": {
+            "from": "2026-08",
+            "to": "2026-09",
+            "spendChangeMinor": 30000
+          },
+          "completedAverages": {
+            "months": 7,
+            "incomeMinor": 6271429,
+            "spendMinor": 3892571,
+            "categoryChanges": [
+              {
+                "category": "Dining",
+                "from": "2026-03",
+                "to": "2026-09",
+                "firstMinor": 180000,
+                "lastMinor": 450000,
+                "changeMinor": 270000
+              },
+              {
+                "category": "Groceries",
+                "from": "2026-03",
+                "to": "2026-09",
+                "firstMinor": 690000,
+                "lastMinor": 820000,
+                "changeMinor": 130000
+              },
+              {
+                "category": "Subscriptions",
+                "from": "2026-03",
+                "to": "2026-09",
+                "firstMinor": 59000,
+                "lastMinor": 99000,
+                "changeMinor": 40000
+              }
+            ]
+          },
+          "currentBudget": {
+            "incomeMinor": 6800000,
+            "spentMinor": 2649000,
+            "unpaidBillsMinor": 360000,
+            "savingsGoalMinor": 1000000,
+            "savingsShortfallMinor": 0,
+            "discretionaryRemainingMinor": 2791000,
+            "deficitMinor": 0
+          },
+          "sampleRows": 83,
+          "note": "Using 8 recorded month(s). Missing months are not treated as zero spending.",
+          "coverage": "Recorded expenses only. The current month is partial; unrecorded costs and future obligations may be missing. All accounts are simulated.",
+          "syntheticHistory": {
+            "version": 1,
+            "months": [
+              "2026-03",
+              "2026-04",
+              "2026-05",
+              "2026-06",
+              "2026-07",
+              "2026-08",
+              "2026-09"
+            ],
+            "rows": 77,
+            "installedAt": "2026-10-20T14:09:42.277Z",
+            "asOf": "2026-10-20",
+            "description": "Seven complete synthetic months in separate archived accounts. Current balances, trust and credentials are unchanged."
+          }
+        },
+        "traceId": "0289c80c-76a5-44df-9d35-705957dbeb11",
+        "kind": "advice",
+        "latencyMs": 97915
+      }
+    ],
+    "updatedAt": "2026-10-20T14:16:11.212Z"
+  }
+]

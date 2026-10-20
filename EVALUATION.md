@@ -47,3 +47,9 @@ Automatic approval review rejected headless browser launches for this update. No
 - These are selected development cases, including related parameter variants, and the rerun uses the same cases after debugging. Independence and representativeness are not established. The Wilson number describes this set, not production reliability, advice usefulness or human approval. No payments were executed, personal feedback manufactured or model weights trained.
 - Editable names and clear/reset/import controls were implemented. Reset checks cover active SQLite data/audit erasure and temporary upload removal, not forensic storage wiping or deleting external backups/authenticator credentials. Personal trust remains independent, and final execution still needs transaction-bound passkey approval.
 - No new rendered-browser or physical-fingerprint validation was performed for this version. The existing video/deck show earlier versions.
+
+## Media refresh — 20 October 2026
+
+The v3.3 app was subsequently recorded in an isolated browser workspace. The capture exercised registration, real local-model chat/follow-up, history expansion, budgeting, sample-image OCR, a BDT 500 transfer with signed virtual-passkey approval, cash spending, unknown-request blocking, benchmark display, renaming, a custom entry, dataset import, record clearing and full reset. Physical fingerprint hardware remains untested. This is demonstrated workflow coverage, not a new 100-case benchmark or comprehensive browser test suite.
+
+The new 2:37 execution demo and 7:26 walkthrough use actual UI captures with edited waits, English synthetic narration, subtitles and chapters. The 12-slide deck has about 9:25 of planned speaking time. User data was not used or reset. Raw synthetic chat replies and recording metadata are in `evidence/media-v33-*`. Both final videos decoded without errors; slides were rendered and individually inspected. PowerPoint itself was not used to validate rendering.

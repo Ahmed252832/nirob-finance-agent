@@ -35,7 +35,7 @@ The prototype is deliberately local. Do not bind it to a public interface or dep
 
 ## Verify and inspect
 
-Run `RUN_TESTS.cmd` or `npm test`: 76 automated tests were passing at packaging. See `SECURITY.md`, `ARCHITECTURE.md`, `COMPETITION.md`, `EVALUATION.md` and `DEMO_SCRIPT.md` for boundaries and evidence. Browser tests use Chrome virtual authenticators; physical fingerprint hardware was not tested. Model evaluation contains 10 actual model tasks plus 2 policy refusals before inference. These are narrow checks, not broad reliability certification.
+Run `RUN_TESTS.cmd` or `npm test`: 76 automated tests were passing at packaging. See `SECURITY.md`, `ARCHITECTURE.md`, `COMPETITION.md`, `EVALUATION.md` and `DEMO_SCRIPT.md` for boundaries and evidence. Browser recordings use a virtual authenticator; physical fingerprint hardware was not tested. The latest 100-case development review includes 80 model-invoked cases and 20 pre-inference clarification/policy checks. These selected cases are not broad reliability certification.
 
 ## Files
 
@@ -43,7 +43,7 @@ Run `RUN_TESTS.cmd` or `npm test`: 76 automated tests were passing at packaging.
 
 ## Chat workspace
 
-See `CHAT_UPGRADE.md` for usage and limits. Earlier videos/decks show the version 3.0 workspace. The chat upgrade has separate evidence under `evidence/chat-*`; previous planning results apply to the earlier model, not automatically to the new one.
+See `CHAT_UPGRADE.md` for usage and limits. The version 3.3 videos/deck were updated on 20 October 2026 and show the current chat and Settings workspace. The execution demo is about 2:37, the tutorial 7:26, and the 12-slide deck has about 9:25 of planned speaking time. Videos use actual isolated app interactions, synthetic money, a virtual authenticator, English synthetic narration and edited model waits. Earlier planning results apply to their recorded model, not automatically to the current one.
 
 ## History, coaching and trust
 

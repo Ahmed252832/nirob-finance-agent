@@ -30,4 +30,4 @@ User declarations: five members; all full-time students at MIST, Bangladesh; all
 - [ ] Team reviews deck and performs a physical-device demonstration
 - [ ] Team uploads materials to the official submission destination
 
-Published deadline: **20 October 2026, 23:59 Beijing time / 21:59 Dhaka time**. Prepare the final upload earlier; verify any organizer extension. Presentation should fit 10 minutes; the supplied deck targets roughly 7 minutes. The supplied execution video is under five minutes. Do not publish credentials, `data/`, private keys, bank details or confidential student documents in the source repository.
+Published deadline: **20 October 2026, 23:59 Beijing time / 21:59 Dhaka time**. Prepare the final upload earlier; verify any organizer extension. Rules were rechecked on 20 October 2026. Presentation should fit 10 minutes; the updated 12-slide deck targets 9:25. The updated execution video is about 2:37, below five minutes. The separate 7:26 walkthrough is a tutorial, not the short submission demo. Do not publish credentials, `data/`, private keys, bank details or confidential student documents in the source repository.

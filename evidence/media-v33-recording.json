@@ -1,0 +1,117 @@
+{
+  "version": "3.3",
+  "date": "2026-10-20",
+  "capture": [
+    {
+      "id": "register",
+      "title": "Register and unlock",
+      "frames": 7
+    },
+    {
+      "id": "chat",
+      "title": "Chat about a business idea",
+      "frames": 160
+    },
+    {
+      "id": "history",
+      "title": "Inspect the financial context",
+      "frames": 7
+    },
+    {
+      "id": "followup",
+      "title": "Continue the conversation",
+      "frames": 161
+    },
+    {
+      "id": "budget",
+      "title": "Suggest and save a budget",
+      "frames": 8
+    },
+    {
+      "id": "ocr",
+      "title": "Upload and review a bill",
+      "frames": 16
+    },
+    {
+      "id": "transfer",
+      "title": "Prepare a transfer in chat",
+      "frames": 35
+    },
+    {
+      "id": "approve",
+      "title": "Review and approve the payment",
+      "frames": 13
+    },
+    {
+      "id": "cash",
+      "title": "Include cash spending",
+      "frames": 7
+    },
+    {
+      "id": "guardian",
+      "title": "Block an unknown demo request",
+      "frames": 11
+    },
+    {
+      "id": "reviews",
+      "title": "Inspect the 100-case review result",
+      "frames": 7
+    },
+    {
+      "id": "rename",
+      "title": "Choose your workspace name",
+      "frames": 7
+    },
+    {
+      "id": "entry",
+      "title": "Add your own demo entry",
+      "frames": 7
+    },
+    {
+      "id": "import",
+      "title": "Preview and replace demo records",
+      "frames": 15
+    },
+    {
+      "id": "reset",
+      "title": "Clear records or reset everything",
+      "frames": 15
+    }
+  ],
+  "videoQA": [
+    {
+      "file": "Nirob_Execution_Demo_v3.3.mp4",
+      "seconds": 157.1,
+      "decode": "pass",
+      "video": "1920x1080 H.264",
+      "audio": "AAC",
+      "subtitles": "English mov_text",
+      "chapters": 11,
+      "sha256": "02eb7d2ce4caec1518a26bdf83f0761f08f28fef6db588460b5020496b278add"
+    },
+    {
+      "file": "Nirob_Step_by_Step_Walkthrough_v3.3.mp4",
+      "seconds": 446.24,
+      "decode": "pass",
+      "video": "1920x1080 H.264",
+      "audio": "AAC",
+      "subtitles": "English mov_text",
+      "chapters": 18,
+      "sha256": "439d94d875410d11c3b97a28b54e23b560a7d5bac50d6f5d04d3b766c5b41ba0"
+    }
+  ],
+  "deck": {
+    "slides": 12,
+    "plannedSpeakingSeconds": 565,
+    "sha256": "ff6214ec8935ff0ee386180e5c64087862fa76531438bfcb24a94a75ec5bd6a3",
+    "renderedAndInspected": true,
+    "powerPointOpened": false
+  },
+  "disclosures": [
+    "Isolated synthetic workspace; personal user data untouched",
+    "Actual local Qwen3-4B chat and virtual WebAuthn authenticator",
+    "Edited inference waits and review-state holds",
+    "Synthetic English narration; physical fingerprint not tested",
+    "No bank connection or external publication"
+  ]
+}
