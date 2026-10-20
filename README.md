@@ -38,7 +38,7 @@ The complete folder includes Node dependencies and model files, but not Node/Pyt
 
 ## Data and safety
 
-Use friendly synthetic account names, never actual bank/card details. Account-number entry cannot connect a bank or intercept a Visa transaction. Bank/PSP authorization and an approved integration are future work. No blockchain is used; there is no claim to Topic F on-chain compliance. Nothing has been published.
+Use friendly synthetic account names, never actual bank/card details. Account-number entry cannot connect a bank or intercept a Visa transaction. Bank/PSP authorization and an approved integration are future work. No blockchain is used; there is no claim to Topic F on-chain compliance. The project is hosted in the owner's private GitHub repository; the app has not been deployed as a public service.
 
 Data, credentials and audit/model secrets are created under `data/`. Do not share this folder. Close the launcher to stop services. To begin a new demo, stop the application and move the entire `data/` folder to a private backup; the next launch starts fresh and needs passkey registration. Never reset it while the server is running.
 
